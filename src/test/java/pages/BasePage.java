@@ -1,6 +1,7 @@
 package pages;
 
 import java.io.File;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -43,11 +44,11 @@ public class BasePage {
 	public BasePage(WebDriver driver, Report report) {
 		this.driver = driver;
 		this.report = report;
-		BasePage.wait_60s = new WebDriverWait(driver, 60);
-		BasePage.wait_30s = new WebDriverWait(driver, 30);
-		BasePage.wait_10s = new WebDriverWait(driver, 10);
-		BasePage.wait_5s = new WebDriverWait(driver, 5);
-		BasePage.wait_2s = new WebDriverWait(driver, 2);
+		BasePage.wait_60s = new WebDriverWait(driver, Duration.ofSeconds(60));
+		BasePage.wait_30s = new WebDriverWait(driver, Duration.ofSeconds(30));
+		BasePage.wait_10s = new WebDriverWait(driver, Duration.ofSeconds(10));
+		BasePage.wait_5s = new WebDriverWait(driver, Duration.ofSeconds(5));
+		BasePage.wait_2s = new WebDriverWait(driver, Duration.ofSeconds(2));
 		PageFactory.initElements(this.driver, this);
 	}
 
