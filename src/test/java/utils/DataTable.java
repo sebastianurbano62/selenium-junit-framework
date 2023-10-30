@@ -27,14 +27,15 @@ public class DataTable {
 	private String browser;
 	private String TestDescription;
 	private String TestParameter;
-	
+	private String TestCategory;
 	
 	public DataTable(final Object[] oRow) throws Exception {
 		
 		setTestCase(oRow[0]);
 		setBrowser(oRow[1]);
 		setTestDescription(oRow[2]); 
-		setTestParameter(oRow[3]);
+		setTestCategory(oRow[3]);
+		setTestParameter(oRow[4]);
 		
 		
 	}
@@ -68,7 +69,16 @@ public class DataTable {
 	public final String getTestDescription() {
 		return TestDescription;
 	}
+	//set Test Category
 	
+		final void setTestCategory(Object TestCategory) {
+			this.TestCategory = TestCategory.toString().trim().toLowerCase();
+		}
+		
+		public final String getTestCategory() {
+			return TestCategory;
+		}
+		
 	//set Test Parameter
 	
 	final void setTestParameter(Object TestParameter) {

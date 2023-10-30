@@ -59,10 +59,10 @@ public class BasePage {
 			System.out.println(url);
 			driver.navigate().to("file://" + url);
 			// driver.get("https://www.google.com/");
-			report.testPass("Se ingresa a la pagina de inicio", "goToHomePage", true);
+			report.testPass("Se ingresa a la página de inicio", "goToHomePage", true);
 		} catch (Throwable t) {
 
-			report.testFail("no se desplego la página de inicio.", "goToHomePage", true);
+			report.testFail("no se desplegó la página de inicio.", "goToHomePage", true);
 			throw t;
 		}
 	}

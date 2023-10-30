@@ -62,6 +62,7 @@ public class Regression_A_Test extends BaseTest {
 	@Test
 	public void test_A_exceution() throws Throwable {
 		String testParameter;
+		String testCategory;
 
 		try {
 			initializeTest("Regresion A", className);
@@ -69,13 +70,18 @@ public class Regression_A_Test extends BaseTest {
 			/* * * INICIO DE PRUEBA * * */
 
 			testParameter = dto.getTestParameter();
+			testCategory = dto.getTestCategory();
 
 			BasePage basePage = new BasePage(driver, report);
 			basePage.goToHomePage();
+			
+			Thread.sleep(2000);
 
 			HomePage home = new HomePage(driver, report);
-			home.displayStoreCategory("mens");
+			home.displayStoreCategory(testCategory);
+			Thread.sleep(2000);
 			home.writeInTheSearchBox(testParameter);
+			Thread.sleep(2000);
 
 			/* * * FIN DE PRUEBA * * */
 			// TODO determinar el estado verdadero del test con algun metodo del reporte
@@ -95,6 +101,7 @@ public class Regression_A_Test extends BaseTest {
 		String testBrowser = dto.getBrowser();
 		String testDescription = dto.getTestDescription();
 		String testParameter = dto.getTestParameter();
+		String testCategory = dto.getTestCategory();
 		String result_ID = counter + "_" + testID + "_" + className;
 
 		System.out.println("Initializing TC #" + testID);
@@ -102,7 +109,8 @@ public class Regression_A_Test extends BaseTest {
 		String testHeader = "<b>" + "ID # " + testID + "</b>" + brakeline;
 		testHeader += "Escenario: " + "<b>" + escenario + "</b>" + brakeline;
 		testHeader += "Navegador: " + "<b>" + testBrowser + "</b>" + brakeline;
-		testHeader += "Parametro: " + "<b>" + testParameter + "</b>";
+		testHeader += "Categoría: " + "<b>" + testCategory + "</b>" + brakeline;
+		testHeader += "Parámetro: " + "<b>" + testParameter + "</b>";
 
 		report.startTest(testHeader, driver, testDescription, result_ID);
 

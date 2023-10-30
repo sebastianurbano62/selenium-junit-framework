@@ -43,7 +43,7 @@ public class HomePage {
 
 	public void clicklogInbutton() {
 		logIn.click();
-		report.testPass("Se hace click en el boton log in.");
+		report.testPass("Se hace click en el botón log in.");
 	}
 
 	public void clickCartbutton() {
@@ -55,7 +55,7 @@ public class HomePage {
 
 		this.searchBox.clear();
 		this.searchBox.sendKeys(searchWord);
-		report.testPass("Se ingresa ( " + searchWord + " ) en el cuadro de busqueda", "writeInTheSearchBox", false);
+		report.testPass("Se ingresa ( " + searchWord + " ) en el cuadro de búsqueda", "writeInTheSearchBox", false);
 	}
 
 	public void displayStoreCategory(String menuname) throws Throwable {
@@ -66,7 +66,7 @@ public class HomePage {
 							+ menuname + "']"))
 					.click();
 			Thread.sleep(1000);
-			report.testPass("Se hace click en la seccion " + menuname, "gotoStoreCategory" + menuname, false);
+			report.testPass("Se hace click en la categoría " + menuname, "gotoStoreCategory" + menuname, false);
 		} catch (Throwable t) {
 
 			report.testFail("fallo al hacer click en " + menuname);
@@ -78,7 +78,7 @@ public class HomePage {
 	public void goTo404Page() {
 
 		btn404.click();
-		report.testPass("El usuario hace click en el boton 404.");
+		report.testPass("El usuario hace click en el botón 404.");
 
 	}
 

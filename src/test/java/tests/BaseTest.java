@@ -30,7 +30,7 @@ public class BaseTest {
 	
     public static void tearDown(Object[] data, String testResult) throws Exception {
         System.out.println("@After each test:");
-        System.out.println("Escribiendo resultados en el los reportes html / .xlsx");
+        System.out.println("Escribiendo resultados en  los reportes html / .xlsx");
         
         counter++;
 		report.endTest();
@@ -40,7 +40,7 @@ public class BaseTest {
     
     public static void tearDown( ) throws Exception {
         System.out.println("@After each test:");
-        System.out.println("Escribiendo resultados en el los reportes html");
+        System.out.println("Escribiendo resultados en los reportes html");
         
         counter++;
 		report.endTest();
