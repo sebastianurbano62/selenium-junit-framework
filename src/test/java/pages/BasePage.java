@@ -58,8 +58,8 @@ public class BasePage {
 			String url = System.getProperty("user.dir") + fs + "src" + fs + "test" + fs + "resources" + fs
 					+ "practicePage" + fs + "index.html";
 			System.out.println(url);
-			driver.navigate().to("file://" + url);
-			// driver.get("https://www.google.com/");
+//			driver.navigate().to("file://" + url);
+			driver.get("https://www.multibank.com.pa/es");
 			report.testPass("Se ingresa a la página de inicio", "goToHomePage", true);
 		} catch (Throwable t) {
 

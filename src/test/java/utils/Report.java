@@ -55,9 +55,8 @@ public final class Report {
 	 * @param name        Título del test.
 	 * @param driver      WebDriver utilizado para cuando hay que hacer logs con
 	 *                    imágenes.
-	 * @param browser     Permite que pueda omitirse (para el caso de IE) el tipo de
-	 *                    foto que no es de la página entera.
-	 * @param descripción del escenario a ejecutar.
+	 * @param testId
+	 * @param testDescription del escenario a ejecutar.
 	 */
 	public void startTest(String name, WebDriver driver, String testDescription, String testId) {
 		this.test = extent.startTest(name, testDescription);
