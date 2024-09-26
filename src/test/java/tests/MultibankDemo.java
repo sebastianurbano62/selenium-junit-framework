@@ -1,25 +1,15 @@
 package tests;
 
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.junit.After;
+
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-
-import pages.BasePage;
-import pages.HomePage;
 import pages.MultibankValidations;
-import utils.DataTable;
 import utils.Driver;
-import utils.Report;
-import utils.ResultTables;
 
-import java.io.FileInputStream;
 
 public class MultibankDemo extends BaseTest {
+
+    private String className = this.getClass().getSimpleName();
 
     @Before
     public void runBeforTest() throws Exception {
@@ -33,7 +23,7 @@ public class MultibankDemo extends BaseTest {
         } catch (Exception e) {
             String testHeader = "<b>" + "Prueba #</b>" + counter + "<br>";
             testHeader += "<b>" + " SETEO DE DATOS FALLIDO " + "</b>";
-            report.startTest(testHeader, null, null, null);
+            report.startTest(testHeader, driver, "escenario1", "100");
             report.testFail(e.getMessage());
             throw e;
         }
@@ -43,16 +33,19 @@ public class MultibankDemo extends BaseTest {
     @Test
     public void MultibankTest() throws Throwable {
 
+        initializeTest("Multibank", className);
+
         try {
+
             /* * * INICIO DE PRUEBA * * */
 
-            MultibankValidations basePage = new MultibankValidations(driver, report);
-            basePage.goToHomePage();
+            MultibankValidations multibankpage = new MultibankValidations(driver, report);
+            multibankpage.goToHomePage();
 
 
             Thread.sleep(2000);
 
-            basePage.LogInValidations();
+            multibankpage.LogInValidations();
 
             /* * * FIN DE PRUEBA * * */
             // TODO determinar el estado verdadero del test con algun metodo del reporte
@@ -63,5 +56,27 @@ public class MultibankDemo extends BaseTest {
 
             throw e;
         }
+    }
+
+    private void initializeTest(String escenario, String className) throws Throwable {
+
+        String brakeline = "<br>";
+        String testID = "100";
+        String testBrowser = "chrome";
+        String testDescription = "Prueba de multibankbancalinea";
+        String testParameter = "bancalinea";
+        String testCategory = "bancalinea";
+        String result_ID = counter + "_" + testID + "_" + className;
+
+        System.out.println("Initializing TC #" + testID);
+
+        String testHeader = "<b>" + "ID # " + testID + "</b>" + brakeline;
+        testHeader += "Escenario: " + "<b>" + escenario + "</b>" + brakeline;
+        testHeader += "Navegador: " + "<b>" + testBrowser + "</b>" + brakeline;
+        testHeader += "Categoría: " + "<b>" + testCategory + "</b>" + brakeline;
+        testHeader += "Parámetro: " + "<b>" + testParameter + "</b>";
+
+        report.startTest(testHeader, driver, testDescription, result_ID);
+
     }
 }

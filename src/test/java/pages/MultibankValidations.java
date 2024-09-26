@@ -1,6 +1,7 @@
 package pages;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -52,7 +53,9 @@ public class MultibankValidations {
         }
     }
 
-    public void LogInValidations(){
+    public void LogInValidations() throws IOException {
+
+        this.report = new Report();
 
         try {
             //Validar que se vea el logo de multibank
